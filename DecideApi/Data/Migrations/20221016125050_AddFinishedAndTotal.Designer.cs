@@ -3,6 +3,7 @@ using DecideApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DecideApi.Data.Migrations
 {
     [DbContext(typeof(DecisionsDbContext))]
-    partial class DecisionsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221016125050_AddFinishedAndTotal")]
+    partial class AddFinishedAndTotal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
