@@ -2,6 +2,7 @@
 using DecideApi.Models;
 using DecideApi.Models.DTO;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -85,6 +86,20 @@ namespace DecideApi.Controllers
             await Context.SaveChangesAsync();
             return Ok(found);
         }
+
+        /*[HttpPatch("{id}")]
+        public async Task<ActionResult> UpdateDecision(int id, JsonPatchDocument<Decision> updates)
+        {
+            var decision = await Context.Decisions
+                .Include(d => d.ProsList)
+                .Include(d => d.ConsList)
+                .SingleOrDefaultAsync(d => d.DecisionId == id);
+            if (decision == null) return NotFound();
+            updates.ApplyTo(decision);
+            Context.Decisions.Update(decision);
+            await Context.SaveChangesAsync();
+            return Ok(decision);
+        }*/
 
         private int GetTotalValue(List<Pro> list)
         {
