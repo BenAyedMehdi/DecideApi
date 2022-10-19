@@ -14,6 +14,6 @@ namespace DecideApi.Models
         public bool Finished { get; set; } = false;
         public int ProsTotal { get; set; }
         public int ConsTotal { get; set; }
-        public bool IsPulic { get; set; } = false;
+        public bool IsPublic { get; set; } = false;
     }
 }

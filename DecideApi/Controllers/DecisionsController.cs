@@ -87,7 +87,13 @@ namespace DecideApi.Controllers
             return Ok(found);
         }
 
-        /*[HttpPatch("{id}")]
+        /// <summary>
+        /// Modify the value of a property (op:replace , path:propertyName , value:newValue)
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="updates"></param>
+        /// <returns></returns>
+        [HttpPatch("{id}")]
         public async Task<ActionResult> UpdateDecision(int id, JsonPatchDocument<Decision> updates)
         {
             var decision = await Context.Decisions
@@ -99,7 +105,7 @@ namespace DecideApi.Controllers
             Context.Decisions.Update(decision);
             await Context.SaveChangesAsync();
             return Ok(decision);
-        }*/
+        }
 
         private int GetTotalValue(List<Pro> list)
         {
